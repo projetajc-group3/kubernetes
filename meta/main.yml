@@ -1,0 +1,6 @@
+---
+galaxy_info:
+  role_name: install_docker
+  author: Renaud
+  description: Ansible docker role
+  company: Renaud
