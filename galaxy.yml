@@ -1,17 +1,17 @@
 ---
 namespace: community
-name: docker-role
+name: docker_role
 version: 1.0.0
 readme: README.md
-authors: Renaud SAUTOUR
+authors: Group3
 description: Install docker
 license_file: COPYING
 tags:
   - v1
-repository: https://github.com/Renaud82/docker_role.git
-documentation: https://github.com/Renaud82/docker_role.git
-homepage: https://github.com/Renaud82/docker_role.git
-issues: https://github.com/Renaud82/docker_role.git
+repository: https://github.com/projetajc-group3/docker_role.git
+documentation: https://github.com/projetajc-group3/docker_role.git
+homepage: https://github.com/projetajc-group3/docker_role.git
+issues: https://github.com/projetajc-group3/docker_role.git
 build_ignore:
   - .gitignore
 © 2022 GitHub, Inc.
