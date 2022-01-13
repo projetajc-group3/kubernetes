@@ -1,45 +1,19 @@
 ---
 # tasks file for install_docker
-- name: "Generate install_docker.sh"
-  template:
-    src: "templates/install_docker.sh.j2"
-    dest: "/home/{{ ansible_user }}/install_docker.sh"
-
-- name: "Execute install_docker.sh"
+- name: "Generate install docker sh"
   command:
-    cmd: "sh /home/{{ ansible_user }}/install_docker.sh"
+    cmd: "curl -fsSL https://get.docker.com -o get-docker.sh"
 
-- name: "Give privilege to {{ ansible_user }}"
-  user:
-    name: "{{ ansible_user }}"
-    append: yes
-    groups:
-      - docker
-
+- name: "Execute install docker"
+  command:
+    cmd: "sh get-docker.sh"
+    
+- name: "Add Docker Privilege"
+  command:
+    cmd: "sudo usermod -aG docker ubuntu"
+    
 - name: "start docker"
   service:
     name: docker
     state: started
     enabled: yes
-
-# tasks file for install ansible docker module
-- name: install python pip on Ubuntu
-  apt:
-    name: python3-pip
-    state: present
-  when: ansible_distribution == "Ubuntu"
-
-- name: download pip script for CentOS
-  get_url:
-    url: https://bootstrap.pypa.io/pip/2.7/get-pip.py
-    dest: /tmp/get-pip.py
-  when: ansible_distribution == "CentOS"
-
-- name: install python pip on CentOS
-  command: python2.7 /tmp/get-pip.py
-  when: ansible_distribution == "CentOS"
-
-- name: install docker-py module
-  pip:
-    name: docker-py
-    state: present
