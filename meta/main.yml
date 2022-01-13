@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: install_docker
-  author: Renaud
+  role_name: docker_role
+  author: Group3
   description: Ansible docker role
-  company: Renaud
+  company: UmanisAjc
