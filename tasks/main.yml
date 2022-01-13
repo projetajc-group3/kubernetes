@@ -1,28 +1,27 @@
 ---
 # tasks file for install kubernetes
 - name: install tools 
-    shell: |
-      sudo apt-get -y update
-      sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
-      sudo apt-get install -y socat
-      sudo apt-get install -y conntrack
-      sudo apt-get -y install wget
+  shell: |
+    sudo apt-get -y update
+    sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
+    sudo apt-get install -y socat
+    sudo apt-get install -y conntrack
+    sudo apt-get -y install wget
 
 - name: "Kubernetes bin"
-    shell: |
-      sudo wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-      sudo chmod +x minikube-linux-amd64
-      sudo mv minikube-linux-amd64 /usr/bin/minikube
+  shell: |
+    sudo wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    sudo chmod +x minikube-linux-amd64
+    sudo mv minikube-linux-amd64 /usr/bin/minikube
 
 - name: "Kubernetes ctl"
-    shell: |
-      sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-      sudo chmod +x kubectl
-      sudo mv kubectl  /usr/bin/
-      sudo echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
-      sudo systemctl enable docker.service
-      
+  shell: |
+    sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+    sudo chmod +x kubectl
+    sudo mv kubectl  /usr/bin/
+    sudo echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
+    sudo systemctl enable docker.service
+  
 - name: "Kubernetes launch"
-    shell: |
-      minikube start --driver=none
-      sudo minikube delete
+  shell: |
+    minikube start --driver=none
