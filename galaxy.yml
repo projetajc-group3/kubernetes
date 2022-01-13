@@ -1,10 +1,10 @@
 ---
 namespace: community
-name: docker_role
+name: kubernetes_role
 version: 1.0.0
 readme: README.md
 authors: Group3
-description: Install docker
+description: Install kubernetes
 license_file: COPYING
 tags:
   - v1
