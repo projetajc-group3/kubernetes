@@ -23,7 +23,6 @@
     sudo systemctl enable docker.service
   
 - name: "Kubernetes launch"
-  become: false
   command: "minikube start --driver=none"
 
 - name: "Create Manifests Kubernetes template" 
@@ -32,6 +31,6 @@
     dest: "/home/{{ ansible_user }}/nodeapp.yml"
   
 - name: "Deploy Manifests Kubernetes"
-  command: "sudo kubectl apply -f nodeapp.yml"
+  command: "kubectl apply -f nodeapp.yml"
   args:
     chdir: "/home/{{ ansible_user }}/"
