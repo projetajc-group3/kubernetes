@@ -32,6 +32,6 @@
     dest: "/home/{{ ansible_user }}/nodeapp.yml"
   
 - name: "Deploy Manifests Kubernetes"
-  command: "kubectl apply -f nodeapp.yml"
+  command: "sudo kubectl apply -f nodeapp.yml"
   args:
     chdir: "/home/{{ ansible_user }}/"
