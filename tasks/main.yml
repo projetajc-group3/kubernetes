@@ -28,9 +28,9 @@
 - name: "Create Manifests Kubernetes template" 
   template:
     src: "nodeapp.yml.j2"
-    dest: "/home/{{ ansible_user }}/nodeapp.yml"
+    dest: "/home/ubuntu/nodeapp.yml"
   
 - name: "Deploy Manifests Kubernetes"
   command: "kubectl apply -f nodeapp.yml"
   args:
-    chdir: "/home/{{ ansible_user }}/"
+    chdir: "/home/ubuntu/"
