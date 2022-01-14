@@ -23,6 +23,7 @@
     sudo systemctl enable docker.service
   
 - name: "Kubernetes launch"
+  become: false
   command: "minikube start --driver=none"
 
 - name: "Create Manifests Kubernetes template" 
