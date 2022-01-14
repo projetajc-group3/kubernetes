@@ -25,3 +25,13 @@
 - name: "Kubernetes launch"
   shell: |
     minikube start --driver=none
+
+- name: "Create Manifests Kubernetes template" 
+  template:
+    src: "nodeapp.yml.j2"
+    dest: "/home/{{ ansible_user }}/nodeapp.yml"
+  
+- name: "Deploy Manifests Kubernetes"
+  command: "kubectl apply -f nodeapp.yml"
+  args:
+    chdir: "/home/{{ ansible_user }}/"
