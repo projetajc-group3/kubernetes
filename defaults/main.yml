@@ -1,3 +1,5 @@
 ---
 administrator: Group3
 email_address: projetajc.group3@gmail.com
+name: webappprod
+image: projetajcgroup3/node:2.0
