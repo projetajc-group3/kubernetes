@@ -8,11 +8,11 @@ spec:
     app: nodeapp
   ports:
   #port du pod a utiliser
-    - targetPort: 3000
+    - targetPort: {{ containers_port }}
       #port du service
-      port: 3000
+      port: {{ containers_port }}
       #port utilisable depuis l'extrieur du cluster
-      nodePort: 30001
+      nodePort: {{ external_port }}
 
 ---
 apiVersion: apps/v1
@@ -35,4 +35,4 @@ spec:
         - name: {{ name_containers }}
           image: {{ image_containers }}
           ports:
-            - containerPort: {{ port_containers }}
+            - containerPort: {{ containers_port }}
